@@ -8,6 +8,12 @@ class AutoComplete extends React.Component {
 		}
 	}
 
+	//  is called onChange of input value
+	//  Set the state to the given value
+	handleChange = (event) => {
+		this.setState({value: event.target.value});
+	}
+
 	render() {
 
 		return (
@@ -15,6 +21,7 @@ class AutoComplete extends React.Component {
 			<form className="Form">
 				<input
 					className="Searchfield"
+					onChange={this.handleChange}
 					value={this.state.value}/>
 			</form>
 
