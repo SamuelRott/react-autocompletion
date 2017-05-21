@@ -1,5 +1,9 @@
 # React AutoCompletion
 
+An React.js component to use autocomplete with Radio4000 api.
+
+You can see a demonstration at [http://react-autocompletion.surge.sh/](http://react-autocompletion.surge.sh/).
+
 ### React boilerplate
 
 The component is developed with the boilerplate proposed by [React documentation](https://facebook.github.io/react/docs/installation.html).
@@ -46,4 +50,10 @@ We test the presence of component and element in our App and the state before an
 
 ### Arrow Controls
 
-There is no js solution implemented, but you can use html native arrow controls with the <select> and <option> element.
+There is no js solution implemented, but you can use html native arrow controls with the `<select>` and `<option>` element.
+
+### To-dos
+
+1. Implement a javascript solution for Arrow controls.
+2. Add an onSubmit event for the form, in this case maybe open selected channel in new tab ?
+3. Add more test (check fetch result, functions output...).
