@@ -50,6 +50,10 @@ class AutoComplete extends React.Component {
 					className="Searchfield"
 					onChange={this.handleChange}
 					value={this.state.value}/>
+				<select defaultValue="select a radio">
+					<option disabled>select a radio</option>
+					{teasers}
+				</select>
 			</form>
 
 		);
