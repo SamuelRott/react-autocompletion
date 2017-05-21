@@ -28,3 +28,13 @@ it( 'AutoComplete component should contain only one searchfield', () =>
     const wrapper = shallow( <AutoComplete/> );
     expect( wrapper.find('.Searchfield').length, 1);
 });
+
+it('State.value should be an empty string', () => {
+  	var wrapper = shallow(<AutoComplete />);
+  	expect(wrapper.state().value, '');
+});
+
+it('State.propositions should be null', () => {
+  	var wrapper = shallow(<AutoComplete />);
+  	expect(wrapper.state().propositions, null);
+});
