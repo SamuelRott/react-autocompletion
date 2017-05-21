@@ -33,6 +33,11 @@ class AutoComplete extends React.Component {
 			});
 	}
 
+	onSubmit = (event) => {
+		// prevent submit from reloading the page
+		event.preventDefault();
+	}
+
 	render() {
 
 		const propositions = this.state.propositions;
@@ -45,11 +50,11 @@ class AutoComplete extends React.Component {
 
 		return (
 
-			<form className="Form">
-				<input
-					className="Searchfield"
-					onChange={this.handleChange}
-					value={this.state.value}/>
+			<form className="Form"
+						onSubmit={this.onSubmit}>
+				<input className="Searchfield"
+							 onChange={this.handleChange}
+							 value={this.state.value}/>
 				<select defaultValue="select a radio">
 					<option disabled>select a radio</option>
 					{teasers}
