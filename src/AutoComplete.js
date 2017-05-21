@@ -1,6 +1,6 @@
 import React  from "react";
 import debounce from "lodash/debounce";
-
+import map from "lodash/map";
 
 class AutoComplete extends React.Component {
 	constructor(props) {
@@ -34,6 +34,14 @@ class AutoComplete extends React.Component {
 	}
 
 	render() {
+
+		const propositions = this.state.propositions;
+		// create list of suggestions using lodash map function
+		const teasers = map(propositions, (proposition) =>
+			{
+				return <option key={proposition.id+"key"} value={proposition.title}> {proposition.title} </option>;
+			}
+		)
 
 		return (
 
