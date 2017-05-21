@@ -3,16 +3,20 @@ import React  from "react";
 class AutoComplete extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			value: ""
+		}
 	}
-
 
 	render() {
 
 		return (
 
-			<div>
-				hello world!
-			</div>
+			<form className="Form">
+				<input
+					className="Searchfield"
+					value={this.state.value}/>
+			</form>
 
 		);
 	}
