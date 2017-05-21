@@ -6,7 +6,8 @@ class AutoComplete extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: ""
+			value: "",
+			propositions: null
 		}
 	}
 
@@ -27,7 +28,9 @@ class AutoComplete extends React.Component {
 	getApi(value) {
 		return fetch(`https://api.radio4000.com/v1/channels?title.icontains=${value}`)
 			.then(res => res.json())
-			.then( console.log);
+			.then( propositions => {
+				this.setState({propositions});
+			});
 	}
 
 	render() {
