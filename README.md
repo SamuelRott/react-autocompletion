@@ -27,11 +27,23 @@ As described by the documentation, the query parameter should be contained by th
 
 With the use of the filterMethod we use the API to filter our result and send us only the wanted results.  
 
-### dependencies
+### Dependencies
 
-**There is two dependencies in use:**
+**There are two dependencies in use:**
 1. [whatwg-fetch](https://github.com/github/fetch)
 	Polyfill for the `fetch()` function, it as a wide browser support.
 
 2. [lodash](https://lodash.com/)
 	In addition to delivering modularity, performance & extras it has a lean and understandable documentation.
+
+### Tests
+
+Run test with `yarn test`.
+
+Here we added [enzyme](https://github.com/airbnb/enzyme) as a test utility, mainly for its easy to use and intuitive syntax.
+
+We test the presence of component and element in our App and the state before any action.
+
+### Arrow Controls
+
+There is no js solution implemented, but you can use html native arrow controls with the <select> and <option> element.
