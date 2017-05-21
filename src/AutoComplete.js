@@ -20,10 +20,15 @@ class AutoComplete extends React.Component {
 	// wait 1 seconde after last key stroke before fetching api
 	// use lodash debounce function
 	waitForFetch = debounce(() => {
-
+		this.getApi(this.state.value);
 	}, 1000)
 
-	
+	// fetch api with the input value as query value, return an array of radio4000 channels
+	getApi(value) {
+		return fetch(`https://api.radio4000.com/v1/channels?title.icontains=${value}`)
+			.then(res => res.json())
+			.then( console.log);
+	}
 
 	render() {
 
