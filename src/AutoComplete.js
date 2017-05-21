@@ -1,4 +1,6 @@
 import React  from "react";
+import debounce from "lodash/debounce";
+
 
 class AutoComplete extends React.Component {
 	constructor(props) {
@@ -12,7 +14,16 @@ class AutoComplete extends React.Component {
 	//  Set the state to the given value
 	handleChange = (event) => {
 		this.setState({value: event.target.value});
+		this.waitForFetch();
 	}
+
+	// wait 1 seconde after last key stroke before fetching api
+	// use lodash debounce function
+	waitForFetch = debounce(() => {
+
+	}, 1000)
+
+	
 
 	render() {
 
