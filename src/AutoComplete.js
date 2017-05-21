@@ -33,6 +33,17 @@ class AutoComplete extends React.Component {
 			});
 	}
 
+	// replace the input value with the choosen one
+	replaceValue = (event) => {
+			// target the <select> element
+			const selectBox = event.currentTarget;
+			// target the selected <option>
+			const selectedValue = selectBox.options[selectBox.selectedIndex].value;
+			// set the state with the new selected value
+			this.setState({value: selectedValue});
+
+	}
+
 	onSubmit = (event) => {
 		// prevent submit from reloading the page
 		event.preventDefault();
@@ -54,8 +65,10 @@ class AutoComplete extends React.Component {
 						onSubmit={this.onSubmit}>
 				<input className="Searchfield"
 							 onChange={this.handleChange}
-							 value={this.state.value}/>
-				<select defaultValue="select a radio">
+							 value={this.state.value}
+							 placeholder="e.g. 'Radio Oskar'"/>
+				<select defaultValue="select a radio"
+								onChange={this.replaceValue}>
 					<option disabled>select a radio</option>
 					{teasers}
 				</select>
