@@ -52,12 +52,16 @@ class AutoComplete extends React.Component {
 	render() {
 
 		const propositions = this.state.propositions;
+		
 		// create list of suggestions using lodash map function
-		const teasers = map(propositions, (proposition) =>
-			{
-				return <option key={proposition.id+"key"} value={proposition.title}> {proposition.title} </option>;
-			}
-		)
+		const teasers = map(propositions, (proposition) => {
+			return <option key={proposition.id+"key"} value={proposition.title}>{proposition.title}</option>;
+		})
+
+		// create second list for datalist, without inner text
+		const datalisTeasers = map(propositions, (proposition) => {
+			return <option key={proposition.id+"key"} value={proposition.title}></option>;
+		})
 
 		return (
 
@@ -66,12 +70,16 @@ class AutoComplete extends React.Component {
 				<input className="Searchfield"
 							 onChange={this.handleChange}
 							 value={this.state.value}
-							 placeholder="e.g. 'Radio Oskar'"/>
+							 placeholder="e.g. 'Radio Oskar'"
+							 list="datalist-channels"/>
 				<select defaultValue="select a radio"
 								onChange={this.replaceValue}>
 					<option disabled>select a radio</option>
 					{teasers}
 				</select>
+				<datalist id="datalist-channels">
+					{datalisTeasers}
+				</datalist>
 			</form>
 
 		);
