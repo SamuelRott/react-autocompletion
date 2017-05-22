@@ -12,8 +12,12 @@ class AutoComplete extends React.Component {
 	}
 
 	//  is called onChange of input value
-	//  Set the state to the given value
 	handleChange = (event) => {
+		// to avoid spaming same value
+		if (event.target.value === this.state.value) {
+			return;
+		}
+		//  Set the state to the input value
 		this.setState({value: event.target.value});
 		this.waitForFetch();
 	}
@@ -22,7 +26,7 @@ class AutoComplete extends React.Component {
 	// use lodash debounce function
 	waitForFetch = debounce(() => {
 		this.getApi(this.state.value);
-	}, 1000)
+	}, 300)
 
 	// fetch api with the input value as query value, return an array of radio4000 channels
 	getApi(value) {
@@ -52,7 +56,7 @@ class AutoComplete extends React.Component {
 	render() {
 
 		const propositions = this.state.propositions;
-		
+
 		// create list of suggestions using lodash map function
 		const teasers = map(propositions, (proposition) => {
 			return <option key={proposition.id+"key"} value={proposition.title}>{proposition.title}</option>;
