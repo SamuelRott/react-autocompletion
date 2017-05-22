@@ -52,6 +52,10 @@ We test the presence of component and element in our App and the state before an
 
 There is no js solution implemented, but you can use html native arrow controls with the `<select>` and `<option>` element.
 
+### Datalist
+
+While the [`<datalist>`](https://developer.mozilla.org/en/docs/Web/HTML/Element/datalist) element gives us a nice experience his browser support is not wide enough ([Caniuse link](http://caniuse.com/#search=datalist)). His behaviour change on each browser and he is not supported by safari desktop and mobile. 
+
 ### To-dos
 
 1. Implement a javascript solution for Arrow controls.
